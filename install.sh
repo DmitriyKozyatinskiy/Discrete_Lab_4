@@ -1,8 +1,8 @@
-sudo apt-get install nodejs
-sudo apt-get install npm
-sudo apt-get install ruby
-sudo npm update
-sudo npm install webpack
-sudo npm install webpack -g
-sudo npm install
+apt-get install nodejs
+apt-get install npm
+apt-get install ruby
+npm update
+npm install webpack
+npm install webpack -g
+npm install
 webpack
