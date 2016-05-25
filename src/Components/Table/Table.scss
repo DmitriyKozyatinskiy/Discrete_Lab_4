@@ -1,0 +1,26 @@
+#navigationPanel {
+  margin-bottom: 10px;
+}
+
+#tableContainer, #graphContainer {
+  height: 500px;
+}
+
+#graphTable {
+  width: auto !important;
+}
+
+.GraphTable__Header {
+  background-color: powderblue;
+}
+
+.GraphTable__Cell {
+  cursor: pointer;
+}
+
+.GraphTable__Cell, .GraphTable__Header {
+  width: 30px !important;
+  height: 20px;
+  padding: 0 !important;
+  text-align: center;
+}

@@ -1,7 +1,7 @@
 {
-  "name": "pokedex",
+  "name": "Discrete Lab 4",
   "version": "1.0.0",
-  "description": "Kottans test project",
+  "description": "Discrete Lab 4",
   "main": "build.js",
   "engines": {
     "node": "5"
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/DmitriyKozyatinskiy/Pokedex"
+    "url": "https://github.com/DmitriyKozyatinskiy/Discrete_Lab_4.git"
   },
   "author": "Dmitriy Kozyatinskiy <dmitriy.kozyatinskiy@gmail.com> (https://github.com/DmitriyKozyatinskiy)",
   "bugs": {
-    "url": "https://github.com/DmitriyKozyatinskiy/Pokedex/issues",
-    "email" : "dmitriy.kozyatinskiy@gmail.com"
+    "url": "https://github.com/DmitriyKozyatinskiy/Discrete_Lab_4/issues",
+    "email": "dmitriy.kozyatinskiy@gmail.com"
   },
-  "homepage": "http://dmitriykozyatinskiy.github.io/Pokedex/",
+  "homepage": "http://dmitriykozyatinskiy.github.io/Discrete_Lab_4/",
   "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^6.1.0",
@@ -59,7 +59,9 @@
     "mustache": "^2.2.1",
     "nprogress-npm": "^0.1.3",
     "randomcolor": "^0.4.3",
+    "sigma": "^1.1.0",
     "tether": "^1.2.0",
-    "typeahead.js": "^0.11.1"
+    "typeahead.js": "^0.11.1",
+    "vis": "^4.16.1"
   }
 }
