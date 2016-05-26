@@ -13,13 +13,10 @@ export default class Graph {
             autoResize: true,
             height: '100%',
             width: '100%',
-            edges: {
-                style: 'arrow'
-            },
         };
         this._container = document.getElementById(containerId);
     }
-
+    
     setNodes(nodes) {
         this._data.nodes = nodes;
         return this;

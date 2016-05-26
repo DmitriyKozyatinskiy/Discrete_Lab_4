@@ -7,7 +7,7 @@
     <title>Лабораторна робота №4</title>
     <link href="builds/bundle.css" rel="stylesheet">
 </head>
-<body>
+<body style="display: none;">
 
 <h1 class="m-a-1 text-xs-center">Лабораторна робота №4</h1>
 <ul class="nav nav-tabs" id="navigationPanel" role="tablist">
@@ -17,6 +17,9 @@
     <li class="nav-item">
         <a class="nav-link" data-toggle="tab" href="#operations" role="tab">Операції</a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="modal" data-target="#js-about-modal" href="#about" role="tab">Про лабораторну</a>
+    </li>
 </ul>
 
 <main class="container-fluid tab-content">
@@ -24,6 +27,9 @@
         <div class="row">
             <div id="tableContainer" class="col-xs-3 text-xs-center"></div>
             <div id="graphContainer" class="col-xs-9"></div>
+        </div>
+        <div class="row">
+            <div id="incidenseTableContainer" class="col-xs-12 text-xs-center"></div>
         </div>
     </div>
     <div id="operations" class="row tab-pane"></div>

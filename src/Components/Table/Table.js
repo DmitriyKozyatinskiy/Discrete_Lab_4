@@ -19,7 +19,6 @@ export default class Table {
             nodes: [],
             edges: []
         };
-        this._fillTable();
     }
 
     setGraph(graph) {
@@ -35,47 +34,108 @@ export default class Table {
         return this._data.nodes;
     }
 
+    setNodes(nodes) {
+        this._data.nodes = nodes;
+        return this;
+    }
 
-    _fillTable() {
+    getEdges() {
+        return this._data.edges;
+    }
+
+    setEdges(edges) {
+        this._data.edges = edges;
+        return this;
+    }
+
+    fillIncidenceTable() {
+        this._$table.empty();
+
+        let $row = $('<tr>');
+        this._$table.append($row);
+
+        for (let i = 0; i <= this._data.edges.length; i++) {
+            let $column = $('<td>', {
+                'html': i ? 'a' + i : '',
+                'class': 'GraphTable__Header',
+            });
+            $row.append($column);
+        }
+
+        for (let i = 1; i <= this._data.nodes.length; i++) {
+            let $row = $('<tr>');
+            let $column = $('<td>', {
+                'html': 'x' + i,
+                'class': 'GraphTable__Header',
+            });
+            $row.append($column);
+
+            this._data.edges.forEach((edge, j) => {
+                console.log(edge);
+                let $column = $('<td>', {
+                    'data-row': i,
+                    'data-column': j + 1,
+                    'class': 'GraphTable__Cell js-graph-table-cell'
+                });
+
+                let colData;
+
+                if (edge.to == i && edge.from == i) {
+                    colData = '-+1'
+                } else if (edge.from == i) {
+                    colData = '+1'
+                } else if (edge.to == i) {
+                    colData = '-1'
+                } else {
+                    colData = '0';
+                }
+
+                $column.html(colData);
+                $row.append($column);
+            });
+            this._$table.append($row);
+        }
+    }
+
+    fillTable() {
         this._data.nodes = [];
         this._$table.empty();
 
-        const $table = $('#graphTable');
         const $firstRow = $('<tr>');
         this._$table.append($firstRow);
 
         for (let i = 0; i <= NODE_AMOUNT; i++) {
-            const $column = $('<td>', {
-                'html': i,
+            let $column = $('<td>', {
+                'html': i ? 'x' + i : '',
                 'class': 'GraphTable__Header',
             });
             $firstRow.append($column);
-        }
 
-        for (let i = 1; i <= NODE_AMOUNT; i++) {
-            const $row = $('<tr>');
-            const currentRowNum = $table.find('tr').length;
-            let $column = $('<td>', {
-                'html': currentRowNum,
-                'class': 'GraphTable__Header'
-            });
-            $row.append($column);
-
-            this._data.nodes.push({
-                id: i,
-                label: i,
-            });
-
-            for (let j = 1; j <= NODE_AMOUNT; j++) {
+            if (i) {
+                const $row = $('<tr>');
+                const currentRowNum = this._$table.find('tr').length;
                 $column = $('<td>', {
-                    'data-row': i,
-                    'data-column': j,
-                    'class': 'GraphTable__Cell js-graph-table-cell'
+                    'html': 'x' + currentRowNum,
+                    'class': 'GraphTable__Header'
                 });
                 $row.append($column);
-                $column.on('click', event => this._handleCellClick(event));
+
+                this._data.nodes.push({
+                    id: i,
+                    label: i,
+                });
+
+                for (let j = 1; j <= NODE_AMOUNT; j++) {
+                    $column = $('<td>', {
+                        'data-row': i,
+                        'data-column': j,
+                        'class': 'GraphTable__Cell js-graph-table-cell'
+                    });
+                    $row.append($column);
+                    $column.on('click', event => this._handleCellClick(event));
+                }
+                this._$table.append($row);
             }
-            this._$table.append($row);
         }
 
         this._setTableControls();
@@ -117,6 +177,15 @@ export default class Table {
         if (this._graph) {
             this._graph.setEdges(this._data.edges);
         }
+        
+        try {
+            this._clickHandler();
+        } catch (e) {}
+        
         return this;
+    }
+
+    setCellClickCallback(callback) {
+        this._clickHandler = callback;
     }
 }
