@@ -16,7 +16,6 @@ $(() => {
     graphTable.fillTable();
     graph.setNodes(graphTable.getNodes());
     graph.drawGraph();
-    console.log(graphTable.getData());
     const incidenseGraphTable = new Table('incidenseTableContainer');
     incidenseGraphTable.setNodes(graphTable.getNodes());
 

@@ -24,12 +24,19 @@
 
 <main class="container-fluid tab-content">
     <div id="data" class="tab-pane active">
-        <div class="row">
-            <div id="tableContainer" class="col-xs-3 text-xs-center"></div>
-            <div id="graphContainer" class="col-xs-9"></div>
+        <div class="btn-group m-b-3" role="group">
+            <button type="button" id="js-save-graph" class="btn btn-primary">Зберегти граф</button>
+            <button type="button" id="js-load-graph" class="btn btn-primary">Завантажити граф</button>
+            <button type="button" id="js-clear-graph" class="btn btn-primary">Очистити граф</button>
         </div>
         <div class="row">
-            <div id="incidenseTableContainer" class="col-xs-12 text-xs-center"></div>
+            <div>
+                <div id="tableContainer" class="col-xs-12"></div>
+                <div id="incidenseTableContainer" class="col-xs-12"></div>
+            </div>
+            <div class="col-xs-8">
+                <div id="graphContainer" class="col-xs-8"></div>
+            </div>
         </div>
     </div>
     <div id="operations" class="row tab-pane"></div>

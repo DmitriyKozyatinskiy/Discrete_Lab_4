@@ -14,7 +14,6 @@ export default class Table {
             'id': 'graphTable',
             'class': 'table table-bordered'
         });
-        this._$container.html(this._$table);
         this._data = {
             nodes: [],
             edges: []
@@ -49,7 +48,12 @@ export default class Table {
     }
 
     fillIncidenceTable() {
-        this._$table.empty();
+        this._$container.empty();
+
+        $('<h4>', {
+            html: 'Таблиця інцидентності'
+        }).appendTo(this._$container);
+        this._$table.empty().appendTo(this._$container);
 
         let $row = $('<tr>');
         this._$table.append($row);
@@ -99,7 +103,12 @@ export default class Table {
 
     fillTable() {
         this._data.nodes = [];
-        this._$table.empty();
+        this._$container.empty();
+
+        $('<h4>', {
+            html: 'Таблиця суміжності'
+        }).appendTo(this._$container);
+        this._$table.empty().appendTo(this._$container);
 
         const $firstRow = $('<tr>');
         this._$table.append($firstRow);
@@ -138,7 +147,7 @@ export default class Table {
             }
         }
 
-        this._setTableControls();
+        // this._setTableControls();
         return this;
     }
 
