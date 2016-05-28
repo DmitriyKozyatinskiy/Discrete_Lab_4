@@ -1,5 +1,3 @@
-import $ from 'jquery';
-import Mustache from 'mustache';
 import vis from 'vis';
 
 export default class Graph {

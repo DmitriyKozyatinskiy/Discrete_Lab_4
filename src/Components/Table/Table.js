@@ -147,7 +147,6 @@ export default class Table {
             }
         }
 
-        // this._setTableControls();
         return this;
     }
 
@@ -155,13 +154,6 @@ export default class Table {
         this._data.edges = [];
         this._graph.resetGraph();
         $('.js-graph-table-cell').removeClass('js-is-selected').empty();
-        return this;
-    }
-
-    _setTableControls() {
-        const $controls = $(Mustache.render(tableControlsTemplate));
-        this._$table.after($controls);
-        $('#js-clear-graph').on('click', event => this._resetTable());
         return this;
     }
 
